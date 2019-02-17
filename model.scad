@@ -2,7 +2,7 @@
 // orientations assume looking along Z axis from pos to neg, with y axis at bottom, ie
 // "left" is positive-y, "right" is negative-y, "upper" is positive-x, "lower" is negative-x
 
-build_for_left_keyboard_half = 1; // 0 or 1, mirrors model
+build_for_left_keyboard_half = 0; // 0 or 1, mirrors model
 
 // for flashforge creator x, keep this <=130-140
 total_length=130;
@@ -48,7 +48,7 @@ difference() {
         cube([
             tower_length,
             total_width,
-            3]);
+            7]);
 
         // upper tower support bar
         translate([
@@ -58,7 +58,7 @@ difference() {
         cube([
             5,
             total_width,
-            tent_height / 2]);
+            tent_height * .3]);
         
         // upper-left tower
         translate([
