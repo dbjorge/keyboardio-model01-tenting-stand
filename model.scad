@@ -31,8 +31,7 @@ tower_height=200;
 // for flashforge creator x, keep this <= 110 or so
 total_width=tower_offset_left + base_center_bar_width + tower_offset_right;
 
-translate([build_for_left_keyboard_half * total_length, 0, 0])
-mirror([build_for_left_keyboard_half,0,0])
+mirror([0,build_for_left_keyboard_half,0])
 difference() {
     union() {
         // base center bar (where thumbscrew goes)
@@ -51,6 +50,16 @@ difference() {
             total_width,
             3]);
 
+        // upper tower support bar
+        translate([
+            total_length - tower_length/2 - 2.5,
+            -tower_offset_right,
+            0])
+        cube([
+            5,
+            total_width,
+            tent_height / 2]);
+        
         // upper-left tower
         translate([
             total_length - tower_length,
